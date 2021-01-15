@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <title>La complexité informatique</title>
+    </head>
+
+    <body>
+        <div class="head-container">
+            <h1>Les codes utilisés</h1>
+        </div>
+
+        <div class="main-container">
+            <div class="sous-container">
+                <h3>Génération d'une liste et calcul du temps</h3>
+                <p><pre><code>
+                    liste = []
+                    for i in range(1000000):
+                        liste.append(randint(0, 10000000))
+
+
+                    start=time.time()
+                    tri(liste)
+                    end=time.time()
+                    print(end-start)
+                </code></pre></p>
+            </div>
+            <div class="sous-container">
+                <h3>Tri par insertion</h3>
+                <p><pre><code>
+                    def tri_insertion(t):
+                        for i in range(1,len(t)):
+                            k,u=i,t[i]
+                            while k>0 and t[k-1]>u:
+                                t[k]=t[k-1]
+                                k-=1
+                            t[k]=u
+                </code></pre></p>
+            </div>  
+            <div class="sous-container">
+                <h3>Tri fusion</h3>
+                <p><pre><code>
+                    def tri_fusion(L,a,b):
+                        if b-a<2:
+                            return None
+                        else:
+                            tri_fusion(L,a,(a+b)//2)
+                            tri_fusion(L,(a+b)//2,b)
+                            fusion(L,a,(a+b)//2,b)
+
+                    def fusion(L,a,m,b):
+                        i1,i2,t1,t2=0,0,L[a:m],L[m:b]
+                        for k in range(a,b):
+                            if i2>=len(t2) or (i1<len(t1) and t1[i1]<=t2[i2]):
+                                L[k]=t1[i1]
+                                i1+=1
+                            else:
+                                L[k]=t2[i2]
+                                i2+=1
+                </code></pre></p>
+            </div>        
+        </div>
+    </body>
+    <footer>
+        <a href="index.html">Revenir à la page précédente</a>
+    </footer>
