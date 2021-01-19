@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <title>La complexité informatique</title>
+    </head>
+
+    <body>
+        <div class="head-container">
+            <h1>Les codes utilisés</h1>
+        </div>
+        <div class="container">
+            <p class="info">
+                Les codes présentés ci-dessous ne sont pas exécutés pour des raisons évidentes de temps de calcul. Les résultats présentés ont cependant été réalisés avec ces codes.
+            </p>
+        </div>
+        <div class="main-container">
+            <div class="sous-container">
+                <h3 class="titre-container">Génération d'une liste et calcul du temps</h3>
+                <p><pre><code>
+n= 10                                   #nombre de test à faire
+for k in range(n):
+    chiffre = randint(100,10000)        #le nombre à mettre dans l'algorithme
+    print(chiffre)
+    start=time.time()
+    Algorithme_factorisation(chiffre)       #on choisit l'algorithme à tester
+    end=time.time()
+                </code></pre></p>
+            </div>
+            <div class="sous-container">
+                <h3 class="titre-container">Factorisation</h3>
+                <p><pre><code>
+def factorisation(n):
+factors = [] 
+divisor = 2   
+while n > 1:   
+    while n % divisor == 0: 
+    factors.append(divisor) 
+    n /= divisor   
+    divisor = divisor + 1 
+    if divisor*divisor > n: 
+    if n > 1: 
+    factors.append(n) 
+    break 
+return factors 
+                </code></pre></p>
+            </div>  
+            <div class="sous-container">
+                <h3 class="titre-container">Factorisation récursive</h3>
+                <p><pre><code>
+def facto_recursif(n,i=2):
+if n==1:
+    return []
+else:
+    if n % i == 0:
+        return facto_recursif(n / i , i) + [i]
+    else:
+        if(i==2):
+            return facto_recursif(n, 3)
+        else:
+            return facto_recursif(n, i + 2)
+                </code></pre></p>
+            </div>        
+        </div>
+        <div class="foot">
+            <a href="index.html">Revenir à la page précédente</a>
+        </div>
+    </body>
