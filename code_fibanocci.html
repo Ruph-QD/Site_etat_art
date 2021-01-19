@@ -19,58 +19,41 @@
             <div class="sous-container">
                 <h3 class="titre-container">Génération d'une liste et calcul du temps</h3>
                 <p><pre><code>
-n = 100000                                      #à choisir
-liste = []
-for i in range(n):
-    liste.append(randint(0, 10000000))
-
-
-start=time.time()
-fonction_de_tri(liste)                          #fonction de tri à tester
-end=time.time()
-print(end-start)
+n= 10                                   #nombre de test à faire
+for k in range(n):
+    chiffre = randint(100,10000)        #le nombre à mettre dans l'algorithme
+    print(chiffre)
+    start=time.time()
+    Algorithme_fibonacci(chiffre)       #on choisit l'algorithme à tester
+    end=time.time()
                 </code></pre></p>
             </div>
             <div class="sous-container">
-                <h3 class="titre-container">Tri par insertion</h3>
+                <h3 class="titre-container">Fibanocci</h3>
                 <p><pre><code>
-def tri_insertion(t):
-    for i in range(1,len(t)):
-        k,u=i,t[i]
-        while k>0 and t[k-1]>u:
-            t[k]=t[k-1]
-            k-=1
-        t[k]=u
+def fibonacci(n):
+a = 0
+b = 1
+if n == 1:
+    return b
+else:
+    for i in range(2,n):
+        c = a + b
+        a = b
+        b = c
+    return b
                 </code></pre></p>
             </div>  
             <div class="sous-container">
-                <h3 class="titre-container">Tri fusion</h3>
+                <h3 class="titre-container">Fibanocci récursif</h3>
                 <p><pre><code>
-def tri_fusion(L,a,b):
-    if b-a<2:
-        return None
-    else:
-        tri_fusion(L,a,(a+b)//2)
-        tri_fusion(L,(a+b)//2,b)
-        fusion(L,a,(a+b)//2,b)
-
-def fusion(L,a,m,b):
-    i1,i2,t1,t2=0,0,L[a:m],L[m:b]
-    for k in range(a,b):
-        if i2>=len(t2) or (i1&lt;len(t1) and t1[i1]<=t2[i2]):
-            L[k]=t1[i1]
-            i1+=1
-        else:
-            L[k]=t2[i2]
-            i2+=1
+def Fibonacci(n):
+if n <= 1:
+    return 1
+else:
+    return Fibonacci(n-1) + Fibonacci(n-2)
                 </code></pre></p>
             </div>        
-            <div class="sous-container">
-                <h3 class="titre-container">Tri sort</h3>
-                <p><pre><code>
-sort(n)
-                </code></pre></p>
-            </div>
         </div>
         <div class="foot">
             <a href="index.html">Revenir à la page précédente</a>
